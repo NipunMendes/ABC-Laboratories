@@ -189,6 +189,10 @@
           .then((response) => {
             if (response.ok) {
               alert("successful!");
+              response.json().then((data) => {
+                const adminId = data;
+                window.location.href = "patient_login.html";
+              });
             } else {
               alert("failed!");
             }

@@ -41,7 +41,7 @@
           const tableBody = document.querySelector("#example tbody");
           data.forEach((element) => {
             const row = document.createElement("tr");
-            const patient_id = document.createElement("td");
+            const patientId = document.createElement("td");
             const first_name = document.createElement("td");
             const last_name = document.createElement("td");
             const age = document.createElement("td");
@@ -50,7 +50,7 @@
             const action = document.createElement("td");
             const actionButton_delete = document.createElement("button");
 
-            patient_id.textContent = element.patient_id;
+            patientId.textContent = element.patientId;
             first_name.textContent = element.first_name;
             last_name.textContent = element.last_name;
             age.textContent = element.age;
@@ -74,7 +74,7 @@
             document.head.appendChild(style);
 
             tableBody.appendChild(row);
-            row.appendChild(patient_id);
+            row.appendChild(patientId);
             row.appendChild(first_name);
             row.appendChild(last_name);
             row.appendChild(age);
@@ -83,7 +83,22 @@
             row.appendChild(action);
             action.appendChild(actionButton_delete);
 
-            actionButton_delete.addEventListener("click", () => {});
+            actionButton_delete.addEventListener("click", () => {
+              const patientId = element.patientId;
+              fetch(`http://localhost:8080/Patient/${patientId}`, {
+                method: "DELETE",
+              })
+                .then((response) => {
+                  if (!response.ok) {
+                    throw new Error("Failed to delete patient");
+                  }
+                  row.remove(); // Remove the row from the table
+                  console.log("Patient deleted successfully");
+                })
+                .catch((error) => {
+                  console.error("Error deleting patient:", error);
+                });
+            });
           });
         })
         .catch((error) => {

@@ -35,7 +35,7 @@
     </script>
 
     <script>
-      patientId = sessionStorage.getItem("patient_id");
+      patientId = sessionStorage.getItem("patientId");
       fetch(`http://localhost:8080/PatientAppointments/${patientId}`)
         .then((response) => response.json())
         .then((data) => {

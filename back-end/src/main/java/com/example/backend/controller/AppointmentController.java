@@ -2,6 +2,7 @@ package com.example.backend.controller;
 
 import com.example.backend.exception.UserNotFoundException;
 import com.example.backend.model.Appointment;
+import com.example.backend.model.Patient;
 import com.example.backend.repository.AppointmentRepository;
 import com.example.backend.repository.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,5 +58,13 @@ public class AppointmentController {
     @GetMapping("/Appointments/{doctorId}/{status}")
     public List<Appointment> getAppointmentByStatus(@PathVariable Integer doctorId, @PathVariable String status){
         return AppointmentRepo.findAllByDoctorIdAndStatus(doctorId, status);
+    }
+
+    @DeleteMapping("/Appointments/{appointmentId}/{appointmentStatus}")
+    public Appointment deleteAppointmentById(@PathVariable Integer appointmentId) {
+        Appointment appointment = AppointmentRepo.findById(appointmentId)
+                .orElseThrow(() -> new UserNotFoundException(appointmentId));
+        AppointmentRepo.delete(appointment);
+        return appointment;
     }
 }

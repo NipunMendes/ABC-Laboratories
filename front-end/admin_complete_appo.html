@@ -87,7 +87,25 @@
             row.appendChild(action);
             action.appendChild(actionButton_delete);
 
-            actionButton_delete.addEventListener("click", () => {});
+            actionButton_delete.addEventListener("click", () => {
+              const appointmentId = element.appointmentId;
+              fetch(
+                `http://localhost:8080/Appointments/${appointmentId}/Complete`,
+                {
+                  method: "DELETE",
+                }
+              )
+                .then((response) => {
+                  if (!response.ok) {
+                    throw new Error("Failed to delete patient");
+                  }
+                  row.remove(); // Remove the row from the table
+                  console.log("Patient deleted successfully");
+                })
+                .catch((error) => {
+                  console.error("Error deleting patient:", error);
+                });
+            });
           });
         })
         .catch((error) => {

@@ -85,7 +85,7 @@
               alert("Login successful!");
               response.json().then((data) => {
                 const patientId = data;
-                sessionStorage.setItem("patient_id", patientId);
+                sessionStorage.setItem("patientId", patientId);
                 window.location.href = "patient_check_availability.html";
               });
             } else {

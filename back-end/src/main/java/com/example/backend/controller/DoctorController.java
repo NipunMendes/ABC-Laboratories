@@ -49,4 +49,12 @@ public class DoctorController {
         return doctorRepo.findById(doctorId)
                 .orElseThrow(() -> new UserNotFoundException(doctorId));
     }
+
+    @DeleteMapping("/Doctor/{doctorId}")
+    public Doctor deleteDoctorById(@PathVariable Integer doctorId) {
+        Doctor doctor = doctorRepo.findById(doctorId)
+                .orElseThrow(() -> new UserNotFoundException(doctorId));
+        doctorRepo.delete(doctor);
+        return doctor;
+    }
 }
