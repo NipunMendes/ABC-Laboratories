@@ -1,7 +1,6 @@
 package com.example.backend.controller;
 
 import com.example.backend.exception.UserNotFoundException;
-import com.example.backend.model.Doctor;
 import com.example.backend.model.Patient;
 import com.example.backend.repository.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;

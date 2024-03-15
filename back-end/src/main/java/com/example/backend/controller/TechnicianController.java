@@ -40,7 +40,7 @@ public class TechnicianController {
     }
 
     @GetMapping("/AllTechnician")
-    List<Technician> getAllTechnician(){
+    List<Technician> getAllDoctor(){
         return technicianRepo.findAll();
     }
 

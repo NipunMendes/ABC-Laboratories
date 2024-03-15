@@ -53,7 +53,7 @@
         this.date.value,
         this.time.value,
         this.category.value,
-        this.doctorId.value,
+        this.technicianId.value,
         this.patientId.value,
         this.message.value,
         this.status.value);"
@@ -69,9 +69,9 @@
         <div class="mb-6" style="display: none">
           <input
             type="text"
-            id="doctorId"
-            name="doctorId"
-            placeholder="doctorId"
+            id="technicianId"
+            name="technicianId"
+            placeholder="technicianId"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           />
         </div>
@@ -130,14 +130,14 @@
           </div>
           <div>
             <label
-              for="doctor_name"
+              for="technician_name"
               class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              >Doctor Name</label
+              >Technician Name</label
             >
             <input
               type="text"
-              id="doctor_name"
-              name="doctor_name"
+              id="technician_name"
+              name="technician_name"
               disabled
               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             />
@@ -172,7 +172,7 @@
         date,
         time,
         category,
-        doctorId,
+        technicianId,
         patientId,
         message,
         status
@@ -186,7 +186,7 @@
             date,
             time,
             category,
-            doctorId,
+            technicianId,
             patientId,
             message,
             status,
@@ -215,8 +215,8 @@
       const category = urlParams.get("category");
 
       // Display the parameters on the page
-      document.getElementById("doctorId").value = id;
-      document.getElementById("doctor_name").value = fname;
+      document.getElementById("technicianId").value = id;
+      document.getElementById("technician_name").value = fname;
       document.getElementById("date").value = date;
       document.getElementById("time").value = time;
       document.getElementById("category").value = category;

@@ -26,8 +26,8 @@ public class AvailabilityController {
         return availabilityRepo.findAll();
     }
 
-    @GetMapping("/DoctorAvailability/{doctorId}")
-    public List<Availability> getAppointmentByPatientId(@PathVariable Integer doctorId){
-        return availabilityRepo.findAllByDoctorId(doctorId);
+    @GetMapping("/TechnicianAvailability/{technicianId}")
+    public List<Availability> getAppointmentByPatientId(@PathVariable Integer technicianId){
+        return availabilityRepo.findAllByTechnicianId(technicianId);
     }
 }

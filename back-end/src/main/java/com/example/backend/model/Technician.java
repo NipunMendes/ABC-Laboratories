@@ -19,7 +19,6 @@ public class Technician {
     private String username;
     private String password;
 
-
     public Integer getTechnicianId() {
         return technicianId;
     }

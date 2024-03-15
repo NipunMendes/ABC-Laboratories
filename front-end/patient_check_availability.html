@@ -41,7 +41,7 @@
           const tableBody = document.querySelector("#example tbody");
           data.forEach((element) => {
             const row = document.createElement("tr");
-            const doctor_name = document.createElement("td");
+            const technician_name = document.createElement("td");
             const category = document.createElement("td");
             const date = document.createElement("td");
             const time = document.createElement("td");
@@ -49,15 +49,15 @@
             const action = document.createElement("td");
             const actionButton = document.createElement("button");
 
-            doctorId = element.doctorId;
-            fetch(`http://localhost:8080/Doctor/${doctorId}`)
+            technicianId = element.technicianId;
+            fetch(`http://localhost:8080/Technician/${technicianId}`)
               .then((response1) => response1.json())
               .then((data1) => {
-                doctor_name.textContent = data1.firstName;
+                technician_name.textContent = data1.firstName;
                 category.textContent = data1.category;
 
                 actionButton.addEventListener("click", () => {
-                  window.location.href = `patient_make_appointment.html?id=${element.doctorId}&date=${element.date}&time=${element.time}&category=${data1.category}&name=${data1.firstName}`;
+                  window.location.href = `patient_make_appointment.html?id=${element.technicianId}&date=${element.date}&time=${element.time}&category=${data1.category}&name=${data1.firstName}`;
                 });
               });
 
@@ -82,7 +82,7 @@
             document.head.appendChild(style);
 
             tableBody.appendChild(row);
-            row.appendChild(doctor_name);
+            row.appendChild(technician_name);
             row.appendChild(category);
             row.appendChild(date);
             row.appendChild(time);
@@ -101,14 +101,14 @@
 
     <div style="padding: 60px">
       <h5 class="text-xl font-bold dark:text-white">
-        Check Doctors Availability
+        Check Technicians Availability
       </h5>
       <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700" />
 
       <table id="example" class="display" style="width: 100%">
         <thead>
           <tr>
-            <th>Doctor Name</th>
+            <th>Technician Name</th>
             <th>Category</th>
             <th>Date</th>
             <th>Time</th>

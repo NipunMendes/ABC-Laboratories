@@ -44,7 +44,7 @@
             const row = document.createElement("tr");
             const appointmentId = document.createElement("td");
             const category = document.createElement("td");
-            const doctor_name = document.createElement("td");
+            const technician_name = document.createElement("td");
             const date = document.createElement("td");
             const time = document.createElement("td");
             const status = document.createElement("td");
@@ -53,12 +53,12 @@
 
             appointmentId.textContent = element.appointmentId;
 
-            doctorId = element.doctorId;
-            fetch(`http://localhost:8080/Doctor/${doctorId}`)
+            technicianId = element.technicianId;
+            fetch(`http://localhost:8080/Technician/${technicianId}`)
               .then((response1) => response1.json())
               .then((data1) => {
                 category.textContent = data1.category;
-                doctor_name.textContent = data1.firstName;
+                technician_name.textContent = data1.firstName;
               });
 
             date.textContent = element.date;
@@ -84,7 +84,7 @@
             tableBody.appendChild(row);
             row.appendChild(appointmentId);
             row.appendChild(category);
-            row.appendChild(doctor_name);
+            row.appendChild(technician_name);
             row.appendChild(date);
             row.appendChild(time);
             row.appendChild(status);
@@ -134,7 +134,7 @@
           <tr>
             <th>Appointment No</th>
             <th>Category</th>
-            <th>Doctor Name</th>
+            <th>Technician Name</th>
             <th>Date</th>
             <th>Time</th>
             <th>Status</th>

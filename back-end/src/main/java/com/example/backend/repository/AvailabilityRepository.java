@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface AvailabilityRepository extends JpaRepository <Availability,Integer> {
 
-    List<Availability> findAllByDoctorId(Integer doctorId);
+    List<Availability> findAllByTechnicianId(Integer technicianId);
 }

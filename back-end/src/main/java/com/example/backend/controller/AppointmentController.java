@@ -4,7 +4,6 @@ import com.example.backend.exception.UserNotFoundException;
 import com.example.backend.model.Appointment;
 import com.example.backend.repository.AppointmentRepository;
 import com.example.backend.repository.PatientRepository;
-import com.example.backend.repository.TechnicianRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +17,6 @@ public class AppointmentController {
     @Autowired
     private AppointmentRepository AppointmentRepo;
     private PatientRepository PatientRepo;
-    private TechnicianRepository technicianRepo;
 
     @PostMapping("/MakeAppointment")
     public ResponseEntity<Appointment> newAppointment(@RequestBody Appointment newAppointment){
@@ -41,9 +39,9 @@ public class AppointmentController {
         return AppointmentRepo.findAllByPatientId(patientId);
     }
 
-    @GetMapping("/DoctorAppointments/{doctorId}")
-    public List<Appointment> getAppointmentByDoctorId(@PathVariable Integer doctorId){
-        return AppointmentRepo.findAllByDoctorId(doctorId);
+    @GetMapping("/TechnicianAppointments/{technicianId}")
+    public List<Appointment> getAppointmentByDoctorId(@PathVariable Integer technicianId){
+        return AppointmentRepo.findAllByTechnicianId(technicianId);
     }
 
     @PutMapping("/UpdateAppointmentStatus/{appointmentId}/{appointmentStatus}")
@@ -56,9 +54,9 @@ public class AppointmentController {
                 }).orElseThrow(()-> new UserNotFoundException(appointmentId));
     }
 
-    @GetMapping("/Appointments/{doctorId}/{status}")
-    public List<Appointment> getAppointmentByStatus(@PathVariable Integer doctorId, @PathVariable String status){
-        return AppointmentRepo.findAllByDoctorIdAndStatus(doctorId, status);
+    @GetMapping("/Appointments/{technicianId}/{status}")
+    public List<Appointment> getAppointmentByStatus(@PathVariable Integer technicianId, @PathVariable String status){
+        return AppointmentRepo.findAllByTechnicianIdAndStatus(technicianId, status);
     }
 
     @DeleteMapping("/Appointments/{appointmentId}/{appointmentStatus}")

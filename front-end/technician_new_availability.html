@@ -126,7 +126,7 @@
                 type="text"
                 id="technicianFee"
                 name="technicianFee"
-                value="1500"
+                value="2500"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 disabled
                 required
@@ -142,7 +142,7 @@
                 type="text"
                 id="hospitalFee"
                 name="hospitalFee"
-                value="500"
+                value="700"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 disabled
                 required
@@ -171,7 +171,7 @@
         technicianFee,
         hospitalFee
       ) {
-        fetch("http://localhost:8080/NewTechAvailability", {
+        fetch("http://localhost:8080/NewAvailability", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

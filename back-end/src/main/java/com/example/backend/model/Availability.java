@@ -10,12 +10,12 @@ public class Availability {
     @Id
     @GeneratedValue
     private Integer availabilityId;
-    private Integer doctorId;
+    private Integer technicianId;
     private String date;
     private String time;
     private String availability;
-    private String doctorFee;
-    private String hospitalFee;
+    private String technicianFee;
+    private String laboratoryFee;
 
     public Integer getAvailabilityId() {
         return availabilityId;
@@ -25,12 +25,28 @@ public class Availability {
         this.availabilityId = availabilityId;
     }
 
-    public Integer getDoctorId() {
-        return doctorId;
+    public Integer getTechnicianId() {
+        return technicianId;
     }
 
-    public void setDoctorId(Integer doctorId) {
-        this.doctorId = doctorId;
+    public void setTechnicianId(Integer technicianId) {
+        this.technicianId = technicianId;
+    }
+
+    public String getTechnicianFee() {
+        return technicianFee;
+    }
+
+    public void setTechnicianFee(String technicianFee) {
+        this.technicianFee = technicianFee;
+    }
+
+    public String getLaboratoryFee() {
+        return laboratoryFee;
+    }
+
+    public void setLaboratoryFee(String laboratoryFee) {
+        this.laboratoryFee = laboratoryFee;
     }
 
     public String getDate() {
@@ -55,21 +71,5 @@ public class Availability {
 
     public void setAvailability(String availability) {
         this.availability = availability;
-    }
-
-    public String getDoctorFee() {
-        return doctorFee;
-    }
-
-    public void setDoctorFee(String doctorFee) {
-        this.doctorFee = doctorFee;
-    }
-
-    public String getHospitalFee() {
-        return hospitalFee;
-    }
-
-    public void setHospitalFee(String hospitalFee) {
-        this.hospitalFee = hospitalFee;
     }
 }
