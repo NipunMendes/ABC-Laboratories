@@ -13,40 +13,40 @@ import java.util.List;
 
 @RestController
 @CrossOrigin("http://127.0.0.1:5500")
-public class AppointmentController {
+public class TechAppointmentController {
 
     @Autowired
     private AppointmentRepository AppointmentRepo;
     private PatientRepository PatientRepo;
     private TechnicianRepository technicianRepo;
 
-    @PostMapping("/MakeAppointment")
+    @PostMapping("/TechMakeAppointment")
     public ResponseEntity<Appointment> newAppointment(@RequestBody Appointment newAppointment){
         AppointmentRepo.save(newAppointment);
         return ResponseEntity.ok(newAppointment);
     }
 
-    @GetMapping("/Appointments")
+    @GetMapping("/TechAppointments")
     public List<Appointment> getAppointments(){
         return AppointmentRepo.findAll();
     }
 
-    @GetMapping("/Appointments/{status}")
+    @GetMapping("/TechAppointments/{status}")
     public List<Appointment> getAppointmentsByStatus(@PathVariable String status){
         return AppointmentRepo.findAllByStatus(status);
     }
 
-    @GetMapping("/PatientAppointments/{patientId}")
+    @GetMapping("/PatientTechAppointments/{patientId}")
     public List<Appointment> getAppointmentByPatientId(@PathVariable Integer patientId){
         return AppointmentRepo.findAllByPatientId(patientId);
     }
 
-    @GetMapping("/DoctorAppointments/{doctorId}")
-    public List<Appointment> getAppointmentByDoctorId(@PathVariable Integer doctorId){
-        return AppointmentRepo.findAllByDoctorId(doctorId);
+    @GetMapping("/TechnicianAppointments/{technicianId}")
+    public List<Appointment> getAppointmentByTechnicianId(@PathVariable Integer technicianId){
+        return AppointmentRepo.findAllByTechnicianId(technicianId);
     }
 
-    @PutMapping("/UpdateAppointmentStatus/{appointmentId}/{appointmentStatus}")
+    @PutMapping("/UpdateTechAppointmentStatus/{appointmentId}/{appointmentStatus}")
     Appointment updateStatus(@RequestBody Appointment update, @PathVariable Integer appointmentId, @PathVariable String appointmentStatus){
         return AppointmentRepo.findById(appointmentId)
                 .map(appointment -> {
@@ -56,12 +56,12 @@ public class AppointmentController {
                 }).orElseThrow(()-> new UserNotFoundException(appointmentId));
     }
 
-    @GetMapping("/Appointments/{doctorId}/{status}")
-    public List<Appointment> getAppointmentByStatus(@PathVariable Integer doctorId, @PathVariable String status){
-        return AppointmentRepo.findAllByDoctorIdAndStatus(doctorId, status);
+    @GetMapping("/TechAppointments/{technicianId}/{status}")
+    public List<Appointment> getAppointmentByStatus(@PathVariable Integer technicianId, @PathVariable String status){
+        return AppointmentRepo.findAllByTechnicianIdAndStatus(technicianId, status);
     }
 
-    @DeleteMapping("/Appointments/{appointmentId}/{appointmentStatus}")
+    @DeleteMapping("/TechAppointments/{appointmentId}/{appointmentStatus}")
     public Appointment deleteAppointmentById(@PathVariable Integer appointmentId) {
         Appointment appointment = AppointmentRepo.findById(appointmentId)
                 .orElseThrow(() -> new UserNotFoundException(appointmentId));

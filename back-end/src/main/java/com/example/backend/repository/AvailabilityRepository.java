@@ -1,6 +1,5 @@
 package com.example.backend.repository;
 
-import com.example.backend.model.Appointment;
 import com.example.backend.model.Availability;
 import org.springframework.data.jpa.repository.JpaRepository;
 

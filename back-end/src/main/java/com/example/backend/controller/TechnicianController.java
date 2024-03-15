@@ -49,4 +49,12 @@ public class TechnicianController {
         return technicianRepo.findById(technicianId)
                 .orElseThrow(() -> new UserNotFoundException(technicianId));
     }
+
+    @DeleteMapping("/Technician/{technicianId}")
+    public Technician deleteTechnicianById(@PathVariable Integer technicianId) {
+        Technician technician = technicianRepo.findById(technicianId)
+                .orElseThrow(() -> new UserNotFoundException(technicianId));
+        technicianRepo.delete(technician);
+        return technician;
+    }
 }
