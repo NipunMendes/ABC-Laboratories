@@ -55,6 +55,7 @@
         this.category.value,
         this.technicianId.value,
         this.patientId.value,
+        this.docRecommend.value,
         this.message.value,
         this.status.value);"
       >
@@ -142,6 +143,33 @@
               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             />
           </div>
+          <div>
+            <label
+              for="docRecommend"
+              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              >Doctor who recommend test</label
+            >
+            <select
+              id="docRecommend"
+              name="docRecommend"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            >
+              <option>Dr. John Smith - Cardiology</option>
+              <option>Dr. Emily Johnson - Dermatology</option>
+              <option>Dr. Michael Williams - Endocrinology</option>
+              <option>Dr. Sarah Brown - Gastroenterology</option>
+              <option>Dr. Christopher Davis - Hematology</option>
+              <option>Dr. Jessica Martinez - Neurology</option>
+              <option>Dr. Daniel Anderson - Ophthalmology</option>
+              <option>Dr. Olivia Taylor - Orthopedics</option>
+              <option>Dr. Matthew Garcia - Otolaryngology (ENT)</option>
+              <option>Dr. Sophia Wilson - Pediatrics</option>
+              <option>Dr. Ethan Jones - Psychiatry</option>
+              <option>Dr. Isabella Moore - Pulmonology</option>
+              <option>Dr. Benjamin Lee - Radiology</option>
+              <option>Dr. Ava Rodriguez - Rheumatology</option>
+            </select>
+          </div>
         </div>
 
         <div class="mb-6">
@@ -174,6 +202,7 @@
         category,
         technicianId,
         patientId,
+        docRecommend,
         message,
         status
       ) {
@@ -188,6 +217,7 @@
             category,
             technicianId,
             patientId,
+            docRecommend,
             message,
             status,
           }),

@@ -57,29 +57,29 @@
             actionButton_edit.textContent = "Edit";
             actionButton_delete.textContent = "Delete";
 
-            // Add CSS styles to the button
+            // Add CSS styles to the buttons
             actionButton_edit.setAttribute("class", "edit-button");
             actionButton_delete.setAttribute("class", "delete-button");
             const style = document.createElement("style");
             style.innerHTML = `
-            .edit-button {
-              background-color: #FB7C19;
-              color: white;
-              padding: 5px;
-              width: 70px;
-              margin-right: 5px;
-              border-radius: 5px;
-              cursor: pointer;
-            }
-            .delete-button {
-              background-color: red;
-              color: white;
-              padding: 5px;
-              width: 70px;
-              border-radius: 5px;
-              cursor: pointer;
-            }
-            `;
+                      .edit-button {
+                          background-color: #FB7C19;
+                          color: white;
+                          padding: 5px;
+                          width: 70px;
+                          margin-right: 5px;
+                          border-radius: 5px;
+                          cursor: pointer;
+                      }
+                      .delete-button {
+                          background-color: red;
+                          color: white;
+                          padding: 5px;
+                          width: 70px;
+                          border-radius: 5px;
+                          cursor: pointer;
+                      }
+                  `;
             document.head.appendChild(style);
 
             tableBody.appendChild(row);

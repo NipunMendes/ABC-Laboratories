@@ -16,6 +16,7 @@ public class Appointment {
     private String date;
     private String time;
     private String category;
+    private String docRecommend;
     private String message;
     private String status;
 
@@ -81,6 +82,14 @@ public class Appointment {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public String getDocRecommend() {
+        return docRecommend;
+    }
+
+    public void setDocRecommend(String docRecommend) {
+        this.docRecommend = docRecommend;
     }
 
     public String getStatus() {
