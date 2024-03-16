@@ -34,7 +34,7 @@ public class AvailabilityController {
         return availabilityRepo.findAllByTechnicianId(technicianId);
     }
 
-    @DeleteMapping("/Availability/{availabilityId}")
+    @DeleteMapping("/TechnicianAvailability/{availabilityId}")
     public Availability deleteAvailabilityById(@PathVariable Integer availabilityId) {
         Availability availability = availabilityRepo.findById(availabilityId)
                 .orElseThrow(() -> new UserNotFoundException(availabilityId));
