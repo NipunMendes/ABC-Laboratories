@@ -224,7 +224,7 @@
         })
           .then((response) => {
             if (response.ok) {
-              alert("successful!");
+              alert("Proceed to payment?");
               response.json().then((data) => {
                 const technicianId = data;
                 window.location.href = "patient_login.html";
@@ -236,18 +236,6 @@
           .catch((error) => {
             alert("Error: " + error);
           });
-
-        // .then((response) => {
-        //   if (response.ok) {
-        //     alert("successful!");
-        //     response.json().then((data) => {
-        //       const adminId = data;
-        //       window.location.href = "patient_login.html";
-        //     });
-        //   } else {
-        //     alert("failed!");
-        //   }
-        // })
       }
     </script>
 

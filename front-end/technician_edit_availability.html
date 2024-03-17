@@ -132,8 +132,8 @@
       function edit_availability(availabilityId, date, time, availability) {
         // Get id from URL parameters
         const urlParams = new URLSearchParams(window.location.search);
-        const id = urlParams.get("id");
-        fetch(`http://localhost:8080/EditAvailability/${id}`, {
+        const id = urlParams.get("availabilityId");
+        fetch(`http://localhost:8080/Availability/${availabilityId}`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
