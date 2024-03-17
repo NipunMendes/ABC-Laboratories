@@ -20,6 +20,8 @@ public class Appointment {
     private String message;
     private String status;
 
+    private String paymentStatus;
+
     public Integer getAppointmentId() {
         return appointmentId;
     }
@@ -98,5 +100,13 @@ public class Appointment {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getPaymentStatus() {
+        return paymentStatus;
+    }
+
+    public void setPaymentStatus(String paymentStatus) {
+        this.paymentStatus = paymentStatus;
     }
 }

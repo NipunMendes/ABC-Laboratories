@@ -54,6 +54,18 @@ public class AppointmentController {
                 }).orElseThrow(()-> new UserNotFoundException(appointmentId));
     }
 
+    @PutMapping("/AppointmentPaymentStatus/${appointmentId}/{paymentStatus}")
+    Appointment updatePaymentStatus(@RequestBody Appointment update, @PathVariable Integer appointmentId, @PathVariable String paymentStatus){
+        return AppointmentRepo.findById(appointmentId)
+                .map(appointment -> {
+                    appointment.setStatus(paymentStatus);
+
+                    return AppointmentRepo.save(appointment);
+                }).orElseThrow(()-> new UserNotFoundException(appointmentId));
+    }
+
+
+
     @GetMapping("/Appointments/{technicianId}/{status}")
     public List<Appointment> getAppointmentByStatus(@PathVariable Integer technicianId, @PathVariable String status){
         return AppointmentRepo.findAllByTechnicianIdAndStatus(technicianId, status);
