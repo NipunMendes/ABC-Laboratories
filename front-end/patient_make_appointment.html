@@ -195,12 +195,12 @@
         <div class="grid gap-6 mb-6 md:grid-cols-2">
           <div>
             <label for="card_number" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Card Number (12 digits)</label>
-            <input type="text" pattern="\d{12}" id="card_number" name="card_number" maxlength="12" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" title="Please enter a 12-digit number"/>
+            <input type="text" required pattern="\d{12}" id="card_number" name="card_number" maxlength="12" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" title="Please enter a 12-digit number"/>
         </div>
         
           <div>
             <label for="expiry_date" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Expiry Date</label>
-            <input type="month" id="expiry_date" name="expiry_date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" onchange="handleExpiryDateChange(this)">
+            <input type="month" required id="expiry_date" name="expiry_date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" onchange="handleExpiryDateChange(this)">
           </div>
           
           <script>
@@ -228,6 +228,7 @@
               id="cvv"
               name="cvv"
               maxlength="3"
+              required
               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             />
           </div>
@@ -242,6 +243,7 @@
               type="text"
               id="card_holder"
               name="card_holder"
+              required
               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             />
           </div>

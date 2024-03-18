@@ -53,19 +53,7 @@ public class AppointmentController {
                     return AppointmentRepo.save(appointment);
                 }).orElseThrow(()-> new UserNotFoundException(appointmentId));
     }
-
-    @PutMapping("/AppointmentPaymentStatus/${appointmentId}/{paymentStatus}")
-    Appointment updatePaymentStatus(@RequestBody Appointment update, @PathVariable Integer appointmentId, @PathVariable String paymentStatus){
-        return AppointmentRepo.findById(appointmentId)
-                .map(appointment -> {
-                    appointment.setStatus(paymentStatus);
-
-                    return AppointmentRepo.save(appointment);
-                }).orElseThrow(()-> new UserNotFoundException(appointmentId));
-    }
-
-
-
+    
     @GetMapping("/Appointments/{technicianId}/{status}")
     public List<Appointment> getAppointmentByStatus(@PathVariable Integer technicianId, @PathVariable String status){
         return AppointmentRepo.findAllByTechnicianIdAndStatus(technicianId, status);
@@ -73,6 +61,14 @@ public class AppointmentController {
 
     @DeleteMapping("/Appointments/{appointmentId}/{appointmentStatus}")
     public Appointment deleteAppointmentById(@PathVariable Integer appointmentId) {
+        Appointment appointment = AppointmentRepo.findById(appointmentId)
+                .orElseThrow(() -> new UserNotFoundException(appointmentId));
+        AppointmentRepo.delete(appointment);
+        return appointment;
+    }
+
+    @DeleteMapping("/PatientAppointments/{appointmentId}/{appointmentStatus}")
+    public Appointment deletePatientAppointmentById(@PathVariable Integer appointmentId) {
         Appointment appointment = AppointmentRepo.findById(appointmentId)
                 .orElseThrow(() -> new UserNotFoundException(appointmentId));
         AppointmentRepo.delete(appointment);
