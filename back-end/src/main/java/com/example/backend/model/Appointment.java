@@ -4,6 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
+import java.sql.Blob;
+
 @Entity
 public class Appointment {
 
@@ -21,6 +23,7 @@ public class Appointment {
     private String status;
 
     private String paymentStatus;
+    private Blob testReport;
 
     public Integer getAppointmentId() {
         return appointmentId;
@@ -108,5 +111,13 @@ public class Appointment {
 
     public void setPaymentStatus(String paymentStatus) {
         this.paymentStatus = paymentStatus;
+    }
+
+    public Blob getTestReport() {
+        return testReport;
+    }
+
+    public void setTestReport(Blob testReport) {
+        this.testReport = testReport;
     }
 }

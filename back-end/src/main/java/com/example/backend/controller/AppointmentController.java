@@ -75,6 +75,15 @@ public class AppointmentController {
         return appointment;
     }
 
+    @PutMapping("/UploadTestReport/{appointmentId}")
+    Appointment uploadTest(@RequestBody Appointment update, @PathVariable Integer appointmentId){
+        return AppointmentRepo.findById(appointmentId)
+                .map(appointment -> {
+
+                    return AppointmentRepo.save(appointment);
+                }).orElseThrow(()-> new UserNotFoundException(appointmentId));
+    }
+
 
 
 }
