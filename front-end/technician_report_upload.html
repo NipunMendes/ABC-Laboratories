@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/d45b3203c1.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <title>ABC Laboratories</title>
+
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css"
+    />
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
+    <script>
+      $(function () {
+        $("#includeHtml").load("technician_navbar.html");
+      });
+    </script>
+    <script>
+      $(document).ready(function () {
+        $("#example").DataTable();
+      });
+    </script>
+  </head>
+  <body>
+    <div id="includeHtml"></div>
+    <div class="p-4 sm:ml-64">
+      <div
+        class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-14"
+      >
+        <h5 class="text-xl font-bold dark:text-white">
+          Upload Report
+        </h5>
+        <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700" />
+      </div>
+    </div>
+  </body>
+</html>

@@ -48,6 +48,7 @@
             const time = document.createElement("td");
             const message = document.createElement("td");
             const action = document.createElement("td");
+            const actionButton_upload = document.createElement("button");
             const actionButton_done = document.createElement("button");
 
             appointmentId.textContent = element.appointmentId;
@@ -62,10 +63,14 @@
             date.textContent = element.date;
             time.textContent = element.time;
             message.textContent = element.message;
+
+            actionButton_upload.textContent = "Upload Report";
             actionButton_done.textContent = "Done";
 
             // Add CSS styles to the button
+            actionButton_upload.setAttribute("class", "upload-button");
             actionButton_done.setAttribute("class", "done-button");
+
             const style = document.createElement("style");
             style.innerHTML = `
             .done-button {
@@ -73,6 +78,15 @@
               color: white;
               padding: 5px;
               width: 70px;
+              margin-left: 5px;
+              border-radius: 5px;
+              cursor: pointer;
+            }
+            .upload-button{
+              background-color: green;
+              color: white;
+              padding: 5px;
+              width: 150px;
               border-radius: 5px;
               cursor: pointer;
             }
@@ -86,7 +100,12 @@
             row.appendChild(time);
             row.appendChild(message);
             row.appendChild(action);
+            action.appendChild(actionButton_upload);
             action.appendChild(actionButton_done);
+
+            actionButton_upload.addEventListener("click", () => {
+              window.location.href = "technician_report_upload.html";
+            });
 
             actionButton_done.addEventListener("click", () => {
               const appointmentId = element.appointmentId;
