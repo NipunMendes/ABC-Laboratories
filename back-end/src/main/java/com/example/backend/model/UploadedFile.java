@@ -6,16 +6,16 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class TestReport {
-
+public class UploadedFile {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String appointmentId;
-    private String date;
+    private Integer appointmentId;
     private String time;
-    private byte[] fileData;
+    private String date;
+    private String fileName;
 
+    // Getters and setters
     public Long getId() {
         return id;
     }
@@ -24,20 +24,12 @@ public class TestReport {
         this.id = id;
     }
 
-    public String getAppointmentId() {
+    public Integer getAppointmentId() {
         return appointmentId;
     }
 
-    public void setAppointmentId(String appointmentId) {
+    public void setAppointmentId(Integer appointmentId) {
         this.appointmentId = appointmentId;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
     }
 
     public String getTime() {
@@ -48,11 +40,19 @@ public class TestReport {
         this.time = time;
     }
 
-    public byte[] getFileData() {
-        return fileData;
+    public String getDate() {
+        return date;
     }
 
-    public void setFileData(byte[] fileData) {
-        this.fileData = fileData;
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
     }
 }
