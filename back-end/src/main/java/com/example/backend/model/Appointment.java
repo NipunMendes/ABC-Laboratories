@@ -2,6 +2,7 @@ package com.example.backend.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 import java.sql.Blob;
@@ -13,7 +14,6 @@ public class Appointment {
     @GeneratedValue
     private Integer appointmentId;
     private Integer patientId;
-    private Integer doctorId;
     private Integer technicianId;
     private String date;
     private String time;
@@ -21,9 +21,9 @@ public class Appointment {
     private String docRecommend;
     private String message;
     private String status;
-
     private String paymentStatus;
-    private Blob testReport;
+    private String fileName;
+
 
     public Integer getAppointmentId() {
         return appointmentId;
@@ -39,14 +39,6 @@ public class Appointment {
 
     public void setPatientId(Integer patientId) {
         this.patientId = patientId;
-    }
-
-    public Integer getDoctorId() {
-        return doctorId;
-    }
-
-    public void setDoctorId(Integer doctorId) {
-        this.doctorId = doctorId;
     }
 
     public Integer getTechnicianId() {
@@ -113,11 +105,5 @@ public class Appointment {
         this.paymentStatus = paymentStatus;
     }
 
-    public Blob getTestReport() {
-        return testReport;
-    }
 
-    public void setTestReport(Blob testReport) {
-        this.testReport = testReport;
-    }
 }
