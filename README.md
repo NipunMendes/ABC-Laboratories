@@ -17,7 +17,7 @@ Navigate to the project directory:
 cd ABC-Laboratories
 
 
-#Backend Setup:
+Backend Setup:
 
 Make sure you have Java and Maven installed.
 Navigate to the backend directory.
@@ -32,8 +32,7 @@ CREATE DATABASE appointment_scheduling;
 Exit the MySQL shell:
 exit;
 
-#Run the Spring Boot application:
-bash
+Run the Spring Boot application:
 mvn spring-boot:run
 
 
