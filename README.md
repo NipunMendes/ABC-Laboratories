@@ -43,7 +43,7 @@ Open admin_login.html in your preferred web browser.
 Access the Application:
 
 Open your web browser and go to http://localhost:8080 to access the application.
-If you are open front-end code with VSCode you can run the code using "Open with live server" option
+If you are open front-end code with VSCode you can run the code using the "Open with live server" option (you have to install the "Live Server" extension by Ritwick Dey to run the project using this method)
 
 Usage
 
