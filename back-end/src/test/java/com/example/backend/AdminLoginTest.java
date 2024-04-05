@@ -18,7 +18,7 @@ class AdminLoginTest {
 		driver.get("http://127.0.0.1:5500/admin_login.html"); // Assuming your application runs on localhost port 8080
 
 		WebElement usernameInput = driver.findElement(By.id("username"));
-		usernameInput.sendKeys("menda");
+		usernameInput.sendKeys("nipun");
 
 		WebElement passwordInput = driver.findElement(By.id("password")); // Replace "password" with the actual id of the password input field
 		passwordInput.sendKeys("1234"); // Replace "password123" with the actual admin password

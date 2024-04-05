@@ -22,7 +22,6 @@ public class Appointment {
     private String message;
     private String status;
     private String paymentStatus;
-    private String fileName;
 
 
     public Integer getAppointmentId() {

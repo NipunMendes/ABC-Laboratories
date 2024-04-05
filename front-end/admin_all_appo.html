@@ -46,7 +46,7 @@
             const date = document.createElement("td");
             const time = document.createElement("td");
             const message = document.createElement("td");
-            const paystatus = document.createElement("td");
+            const paymentStatus = document.createElement("td");
             const statuss = document.createElement("td");
             const action = document.createElement("td");
             const actionButton_edit = document.createElement("button");
@@ -64,13 +64,13 @@
             date.textContent = element.date;
             time.textContent = element.time;
             message.textContent = element.message;
-            paystatus.textContent = element.paystatus;
+            paymentStatus.textContent = element.payment_status;
             statuss.textContent = element.status;
-            actionButton_edit.textContent = "Edit";
+            // actionButton_edit.textContent = "Edit";
             actionButton_cancel.textContent = "Cancel";
 
             // Add CSS styles to the button
-            actionButton_edit.setAttribute("class", "edit-button");
+            // actionButton_edit.setAttribute("class", "edit-button");
             actionButton_cancel.setAttribute("class", "delete-button");
             const style = document.createElement("style");
             style.innerHTML = `
@@ -99,8 +99,7 @@
             row.appendChild(patient_name);
             row.appendChild(date);
             row.appendChild(time);
-            row.appendChild(message);
-            row.appendChild(paystatus);
+            row.appendChild(paymentStatus);
             row.appendChild(statuss);
             row.appendChild(action);
             action.appendChild(actionButton_edit);
@@ -108,7 +107,25 @@
 
             actionButton_edit.addEventListener("click", () => {});
 
-            actionButton_cancel.addEventListener("click", () => {});
+            actionButton_cancel.addEventListener("click", () => {
+              const appointmentId = element.appointmentId;
+              fetch(
+                `http://localhost:8080/Appointments/${appointmentId}/Pending`,
+                {
+                  method: "DELETE",
+                }
+              )
+                .then((response) => {
+                  if (!response.ok) {
+                    throw new Error("Failed to delete appointment");
+                  }
+                  row.remove(); // Remove the row from the table
+                  console.log("Appointment deleted successfully");
+                })
+                .catch((error) => {
+                  console.error("Error deleting technician:", error);
+                });
+            });
           });
         })
         .catch((error) => {
@@ -131,7 +148,6 @@
               <th>Patient Name</th>
               <th>Date</th>
               <th>Time</th>
-              <th>Message</th>
               <th>Payment Status</th>
               <th>Status</th>
               <th>Action</th>
