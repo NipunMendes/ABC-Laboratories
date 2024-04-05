@@ -46,6 +46,7 @@
             const date = document.createElement("td");
             const time = document.createElement("td");
             const message = document.createElement("td");
+            const paystatus = document.createElement("td");
             const statuss = document.createElement("td");
             const action = document.createElement("td");
             const actionButton_edit = document.createElement("button");
@@ -63,6 +64,7 @@
             date.textContent = element.date;
             time.textContent = element.time;
             message.textContent = element.message;
+            paystatus.textContent = element.paystatus;
             statuss.textContent = element.status;
             actionButton_edit.textContent = "Edit";
             actionButton_cancel.textContent = "Cancel";
@@ -98,6 +100,7 @@
             row.appendChild(date);
             row.appendChild(time);
             row.appendChild(message);
+            row.appendChild(paystatus);
             row.appendChild(statuss);
             row.appendChild(action);
             action.appendChild(actionButton_edit);
@@ -129,6 +132,7 @@
               <th>Date</th>
               <th>Time</th>
               <th>Message</th>
+              <th>Payment Status</th>
               <th>Status</th>
               <th>Action</th>
             </tr>

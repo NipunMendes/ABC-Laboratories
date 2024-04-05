@@ -59,7 +59,7 @@ public class AppointmentController {
         return AppointmentRepo.findAllByTechnicianIdAndStatus(technicianId, status);
     }
 
-    @DeleteMapping("/Appointments/{appointmentId}/{appointmentStatus}")
+    @DeleteMapping("/Appointments/{appointmentId}/{status}")
     public Appointment deleteAppointmentById(@PathVariable Integer appointmentId) {
         Appointment appointment = AppointmentRepo.findById(appointmentId)
                 .orElseThrow(() -> new UserNotFoundException(appointmentId));
@@ -67,7 +67,7 @@ public class AppointmentController {
         return appointment;
     }
 
-    @DeleteMapping("/PatientAppointments/{appointmentId}/{appointmentStatus}")
+    @DeleteMapping("/PatientAppointments/{appointmentId}/{status}")
     public Appointment deletePatientAppointmentById(@PathVariable Integer appointmentId) {
         Appointment appointment = AppointmentRepo.findById(appointmentId)
                 .orElseThrow(() -> new UserNotFoundException(appointmentId));
